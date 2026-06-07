@@ -32,8 +32,15 @@ def contact():
     print(f"Message: {message}\n")
     return jsonify({"status": "success", "message": "Thank you! We will reply within 24 hours."})
 
+import os
+
 if __name__ == '__main__':
     print("\n🚀 EshwaraTech Solutions Server Started!")
-    print("🌐 Open: http://localhost:5000")
-    print("📩 Contact: eshwaratechsolution@gmail.com\n")
-    app.run(debug=True, port=5000)
+
+    port = int(os.environ.get("PORT", 5000))
+
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False
+    )
